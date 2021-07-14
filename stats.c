@@ -39,9 +39,38 @@ void main() {
                                 
 
   /* Other Variable Declarations Go Here */
-  
+	int user_input;
   /* Statistics and Printing Functions Go Here */
-  
+  	main_list:
+	printf("To print data elements enter \"1\"\n");
+	printf("To print data statistics enter \"2\"\n");
+	printf("To sort data enter \"3\"\n");
+	printf("To terminiate enter \"4\"\n");
+	printf(": ");
+	scanf("%d", &user_input);
+	
+	switch (user_input){
+		case 1:
+			print_array(test);
+			printf("\n");
+			goto main_list;
+			break;
+		case 2:
+			print_statistics(test);
+			printf("\n");
+			goto main_list;
+			break;
+		case 3:
+			sort_array(test);
+			printf("\n");
+			goto main_list;
+		case 4:
+			break;
+		default:
+			printf("Wrong input");
+			printf("\n");
+			goto main_list;
+	}
 }
 
 
@@ -50,30 +79,74 @@ void main() {
 
 void print_array (unsigned char *arr){
 
+        for (int i = 0;  i < SIZE; i++){
+		printf("item at pos [%d] is: %d\n", i+1, *arr);
+		arr++;
+        }
 }
 
 
 void sort_array (unsigned char *arr){
+	
+	int temp;
 
+	for (int i = 0; i < SIZE; i++){
+		
+		for (int j = i+1; j < SIZE; j++){
+			
+				if (*(arr+i) < *(arr+j)){
+					temp = *(arr+i);
+					*(arr+i) = *(arr+j);
+					*(arr+j) = temp;
+				}
+		}	
+	}
+	printf("\nData Sorted !!");	
  }
  
 int find_median(unsigned char *arr){
-
+	 int median;
+	 if (SIZE % 2 == 0)
+		median = *(arr+(SIZE/2))+*(arr+(SIZE/2)+1);
+	median = *(arr+(SIZE/2));
+	return median;
 }
 
 int find_maximum(unsigned char *arr){
-
+	int max = 0;
+	for (int i = 0; i < SIZE; i++){
+		if (*(arr+i) > max)
+			max = *(arr+i);
+		}
+		return max;
 }
 
 int find_minimum(unsigned char *arr){
-
+	int min = *arr;
+	 	for (int i = 0; i < SIZE; i++){
+		if (*(arr+i) < min)
+			min = *(arr+i);
+		}
+		return min;
 }
 
 int find_mean(unsigned char *arr){
-
+	int sum = 0;
+	for (int i = 0; i < SIZE; i++){
+		sum += *(arr+i);
+	}
+	return sum/SIZE;
 }
 
 void print_statistics(unsigned char *arr){
-	
+	int median = find_median(arr);
+	int maximum = find_maximum(arr);
+	int minimum = find_minimum(arr);
+	int mean = find_mean(arr);
+	printf("\n");
+	printf("Median = %d\n", median);
+	printf("Mean = %d\n", mean);
+	printf("Maximum = %d\n", maximum);
+	printf("Minimum = %d\n", minimum);
 }
 
