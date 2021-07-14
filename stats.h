@@ -9,13 +9,13 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file stats.h
+ * @brief Header file for array analtyics program
  *
- * <Add Extended Description Here>
+ * Header file for a program that analyzes an array of unsigned char data items and report analytics on the maximum, minimum, mean, and median of the data set.
  *
- * @author <Add FirsName LastName>
- * @date <Add date >
+ * @author Amir Shetaia
+ * @date 13 Jul 2021
  *
  */
 #ifndef __STATS_H__
@@ -23,17 +23,70 @@
 
 /* Add Your Declarations and Function Comments here */ 
 
+void print_array (unsigned char *arr);
 /**
- * @brief <Add Brief Description of Function Here>
+ * @brief prints array to the screen
  *
- * <Add Extended Description Here>
+ * Given an array of data and a length, prints the array to the screen
  *
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
+ * @param arr pointer to data array
  *
- * @return <Add Return Informaiton here>
+ * @return void
+ */
+
+void sort_array (unsigned char *arr);
+/**
+ * @brief <sorts array elements descending>
+ *
+ * <Given an array of data and a length, sorts the array from largest to smallest. >
+ *
+ * @param <arr> <pointer to data array>
+ *
+ * @return <void>
+ */
+
+int find_median(unsigned char *arr);
+/**
+ * @brief finds median of array elements
+ *
+ * Given an array of data and a length, returns the median value
+ *
+ * @param arr pointer to data array
+ *
+ * @return meidan
+ */
+
+int find_maximum(unsigned char *arr);
+/**
+ * @brief finds maximum of array elements
+ *
+ * Given an array of data and a length, returns the maximum
+ *
+ * @param arr pointer to data array
+ *
+ * @return maximum
+ */
+
+int find_minimum(unsigned char *arr);
+/**
+ * @brief finds minimum of array elements
+ *
+ * Given an array of data and a length, returns the minimum
+ *
+ * @param arr pointer to data array
+ *
+ * @return minimum
+ */
+
+void print_statistics(unsigned char *arr);
+/**
+ * @brief prints array statistics to the screen
+ *
+ * A function that prints the statistics of an array including minimum, maximum, mean, and median.
+ *
+ * @param arr pointer to data array
+ *
+ * @return void
  */
 
 
